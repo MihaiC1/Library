@@ -1,0 +1,90 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adauga/editeaza o carte</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Book </h1>
+        </div>
+    </div>
+
+    <form th:action="@{/gestiune/v1/books-ui/add}" th:object="${book}" method="post">
+        <input type="hidden" th:value="${book.id}" name="id"/>
+        <div class="form-group">
+            <label for="titlu">Titlu:</label>
+            <input th:field="*{titlu}" type="text" class="form-control" id="titlu">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('titlu')}" th:errors="*{titlu}"></label>
+        </div>
+        <div class="form-group">
+            <label for="autor">Autor:</label>
+            <input th:field="*{autor}" type="text" class="form-control" id="autor">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}"></label>
+        </div>
+        <div class="form-group">
+            <label for="editura">Editura:</label>
+            <input th:field="*{editura}" type="text" class="form-control" id="editura">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('editura')}" th:errors="*{editura}"></label>
+        </div>
+        <div class="form-group">
+            <label for="colectie">Colectie:</label>
+            <input th:field="*{colectie}" type="text" class="form-control" id="colectie">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('colectie')}" th:errors="*{colectie}"></label>
+        </div>
+        <div class="form-group">
+            <label for="categorie">Categorie:</label>
+            <input th:field="*{categorie}" type="text" class="form-control" id="categorie">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('categorie')}" th:errors="*{categorie}"></label>
+        </div>
+        <div class="form-group">
+            <label for="editie">Editie:</label>
+            <input th:field="*{editie}" type="text" class="form-control" id="editie">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('editie')}" th:errors="*{editie}"></label>
+        </div>
+        <div class="form-group">
+            <label for="isbn">ISBN:</label>
+            <input th:field="*{isbn}" type="text" class="form-control" id="isbn">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}"></label>
+        </div>
+        <div class="form-group">
+            <label for="traducator">Traducator:</label>
+            <input th:field="*{traducator}" type="text" class="form-control" id="traducator">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('traducator')}" th:errors="*{traducator}"></label>
+        </div>
+        <div class="form-group">
+            <label for="numarPagini">Numar de pagini:</label>
+            <input th:field="*{numarPagini}" type="text" class="form-control" id="numarPagini">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('numarPagini')}" th:errors="*{numarPagini}"></label>
+        </div>
+        <div class="form-group">
+            <label for="format">Format:</label>
+            <input th:field="*{format}" type="text" class="form-control" id="format">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('format')}" th:errors="*{format}"></label>
+        </div>
+        <div class="form-group">
+            <label for="tipCoperta">Tip de coperta:</label>
+            <input th:field="*{tipCoperta}" type="text" class="form-control" id="tipCoperta">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('tipCoperta')}" th:errors="*{tipCoperta}"></label>
+        </div>
+        <div class="form-group">
+            <label for="dataAparitie">An aparitie:</label>
+            <input th:field="*{dataAparitie}" type="text" class="form-control" id="dataAparitie">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('dataAparitie')}" th:errors="*{dataAparitie}"></label>
+        </div>
+        <div class="form-group">
+            <label for="stoc">Stoc:</label>
+            <input th:field="*{stoc}" type="text" class="form-control" id="stoc">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('stoc')}" th:errors="*{stoc}"></label>
+        </div>
+
+
+        <a th:href="@{/gestiune/v1/books-ui/all}">
+            <button type="button" class="btn btn-danger">Cancel</button>
+        </a>
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adauga/editeaza un nou utilizator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> User </h1>
+        </div>
+    </div>
+
+    <form th:action="@{/gestiune/v1/users-ui/add}" th:object="${user}" method="post">
+        <input type="hidden" th:value="${user.id}" name="id"/>
+        <div class="form-group">
+            <label for="nume">Nume:</label>
+            <input th:field="*{nume}" type="text" class="form-control" id="nume">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('nume')}" th:errors="*{nume}"></label>
+        </div>
+        <div class="form-group">
+            <label for="numarTelefon">Numar de telefon:</label>
+            <input th:field="*{numarTelefon}" type="text" class="form-control" id="numarTelefon">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('numarTelefon')}" th:errors="*{numarTelefon}"></label>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input th:field="*{email}" type="text" class="form-control" id="email">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></label>
+        </div>
+
+        <a th:href="@{/gestiune/v1/users-ui/all}">
+            <button type="button" class="btn btn-danger">Cancel</button>
+        </a>
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <title>Gestiune biblioteca</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+
+<body>
+<div >
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Gestiune biblioteca </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                <tr>
+                   <th>
+                       <a th:href="@{/gestiune/v1/rents-ui/all}">
+                           <button type="button" class="btn btn-success">Imprumuturi</button>
+                       </a>
+                   </th>
+                    <th>
+                        <a th:href="@{/gestiune/v1/books-ui/all}">
+                            <button type="button" class="btn btn-success">Carti</button>
+                        </a>
+                    </th>
+                    <th>
+                        <a th:href="@{/gestiune/v1/users-ui/all}">
+                            <button type="button" class="btn btn-success">Utilizatori</button>
+                        </a>
+                    </th>
+                </tr>
+                </thead>
+
+            </table>
+        </div>
+        <a href="@{/gestiune/v1/books-ui/all}">
+            <input type="text" placeholder="Search...">
+            <button type="button">Search</button>
+        </a>
+
+    </div>
+
+</div>
+</body>
+</html>

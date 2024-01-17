@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adauga/editeaza un nou imprumut</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Imprumut </h1>
+        </div>
+    </div>
+
+    <form th:action="@{/gestiune/v1/rents-ui/update/}" th:object="${rent}" method="post">
+        <input type="hidden" th:value="${rent.idImprumut}" name="id"/>
+        <div class="form-group">
+            <label for="utilizator">Id utilizator:</label>
+            <input th:field="*{idUtilizator}" type="text" class="form-control" id="utilizator">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('utilizator')}" th:errors="*{idUtilizator}"></label>
+        </div>
+        <div class="form-group">
+            <label for="carte">Id carte:</label>
+            <input th:field="*{idCarte}" type="text" class="form-control" id="carte">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('carte')}" th:errors="*{idCarte}"></label>
+        </div>
+        <div class="form-group">
+            <label for="dataImprumut">Data imprumut:</label>
+            <input th:field="*{dataImprumut}" type="text" class="form-control" id="dataImprumut">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('dataImprumut')}" th:errors="*{dataImprumut}"></label>
+        </div>
+        <div class="form-group">
+            <label for="dataRestituire">Data restituire:</label>
+            <input th:field="*{dataRestituire}" type="text" class="form-control" id="dataRestituire">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('dataRestituire')}" th:errors="*{dataRestituire}"></label>
+        </div>
+        <div class="form-group">
+            <label for="penalitati">Penalitati:</label>
+            <input th:field="*{penalitati}" type="number" class="form-control" id="penalitati">
+            <label th:style="'color:red'" th:if="${#fields.hasErrors('penalitati')}" th:errors="*{penalitati}"></label>
+        </div>
+
+        <a th:href="@{/gestiune/v1/rents-ui/all}">
+            <button type="button" class="btn btn-danger">Cancel</button>
+        </a>
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+</div>
+</body>
+</html>
